@@ -6,8 +6,11 @@ import androidx.compose.material.icons.outlined.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
+import com.example.cathub.ui.screens.details.DetailsScreen
 import com.example.cathub.ui.screens.feed.FeedScreen
 
 @Composable
@@ -26,6 +29,33 @@ fun BottomNavGraph(
         }
         composable(route = BottomBarScreens.Profile.route) {
             FeedScreen(navController)
+        }
+        composable(
+            route = Screens.Details.route + "/{breed}/{imageUrl}/{description}",
+            arguments = listOf(
+                navArgument("breed") {
+                    type = NavType.StringType
+                    defaultValue = null
+                    nullable = true
+                },
+                navArgument("image") {
+                    type = NavType.StringType
+                    defaultValue = null
+                    nullable = true
+                },
+                navArgument("description") {
+                    type = NavType.StringType
+                    defaultValue = null
+                    nullable = true
+                }
+            )
+        ) { entry ->
+            DetailsScreen(
+                navController,
+                breed = entry.arguments?.getString("breed"),
+                image = entry.arguments?.getString("image"),
+                description = entry.arguments?.getString("description")
+            )
         }
     }
 }
@@ -56,4 +86,21 @@ sealed class BottomBarScreens(
         selectedIcon = Icons.Filled.Person,
         unselectedIcon = Icons.Outlined.Person
     )
+}
+
+sealed class Screens(
+    val route: String
+) {
+    object Details: Screens(
+        route = "details"
+    )
+
+    fun withArgs(vararg args: String): String {
+        return buildString {
+            append(route)
+            args.forEach { arg ->
+                append("/$arg")
+            }
+        }
+    }
 }
