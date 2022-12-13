@@ -1,45 +1,34 @@
 package com.example.cathub.ui.screens.feed
 
-import android.util.Log
+import android.annotation.SuppressLint
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.cathub.utils.TAG
+import com.example.cathub.BaseApplication
+import com.example.cathub.model.Cat
+import com.example.cathub.utils.getJsonDataFromAsset
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@SuppressLint("StaticFieldLeak")
 @HiltViewModel
-class FeedViewModel @Inject constructor() : ViewModel() {
+class FeedViewModel
+@Inject constructor(
+    private val application: BaseApplication
+) : ViewModel() {
 
-//    val articles: List<Article> = ArrayList()
-    val loading = mutableStateOf(false)
-    val query = mutableStateOf("")
-    val page = mutableStateOf(1)
-    private var recipeListScrollPosition = 0
+    val cats: MutableState<List<Cat>> = mutableStateOf(ArrayList())
 
     init {
-//        onTriggerEvent(ArticleListEvent.NewSearchEvent)
+        cats.value = getCats()
     }
 
-//    fun onTriggerEvent(event: ArticleListEvent) {
-//        viewModelScope.launch {
-//            try {
-//                when (event) {
-//                    is ArticleListEvent.NewSearchEvent -> {
-//                        newSearch()
-//                    }
-//                    is ArticleListEvent.NextPageEvent -> {
-//                        nextPage()
-//                    }
-//                    is ArticleListEvent.RestoreStateEvent -> {
-////                        restoreState()
-//                    }
-//                }
-//            } catch (e: Exception) {
-//                Log.e(TAG, "onTriggerEvent: Exception $e, ${e.cause}" )
-//            }
-//        }
-//    }
+    private fun getCats(): List<Cat> {
+        val jsonFileString = getJsonDataFromAsset(application.applicationContext, "data.json")
+        val gson = Gson()
+        val listPersonType = object : TypeToken<List<Cat>>() {}.type
+        return gson.fromJson(jsonFileString, listPersonType)
+    }
 }

@@ -1,19 +1,16 @@
 package com.example.cathub.ui.screens.feed
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-//import com.example.cathub.ui.components.ArticleList
-//import com.example.cathub.ui.components.CircularIndeterminateProgressBar
+import com.example.cathub.ui.components.CatsList
+import com.example.cathub.ui.components.FeedHeader
 import com.example.cathub.ui.components.utils.SnackbarController
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
-
-const val PAGE_SIZE = 50
 
 @OptIn(DelicateCoroutinesApi::class)
 @Composable
@@ -22,35 +19,26 @@ fun FeedScreen(
 ) {
 
     val viewModel: FeedViewModel = hiltViewModel()
+    val cats = viewModel.cats.value
 
-//    val articles = viewModel.articles.value
-    val loading = viewModel.loading.value
-    val page = viewModel.page.value
     val scaffoldState = rememberScaffoldState()
     val snackbarController = SnackbarController(GlobalScope)
 
-//    Scaffold(
-//        topBar = { Text(text = "The NEWS Home Screen") },
-//        scaffoldState = scaffoldState,
-//        snackbarHost = { scaffoldState.snackbarHostState }
-//    ) { padding ->
-////        if (loading) {
-////            CircularIndeterminateProgressBar(verticalBias = 0.4f)
-////        } else {
-//            Box {
-////                ArticleList(
-////                    loading = loading,
-////                    padding = padding,
-////                    articles = articles,
-////                    onChangeRecipeScrollPosition = viewModel::onChangeArticleScrollPosition,
-////                    page = page,
-////                    onNextPage = { viewModel.onTriggerEvent(ArticleListEvent.NextPageEvent) },
-////                    scaffoldState = scaffoldState,
-////                    snackbarController = snackbarController,
-////                    navController = navController
-//                )
-//            }
-////        }
-//    }
-}
-
+    Scaffold(
+        topBar = {
+            FeedHeader()
+        },
+        scaffoldState = scaffoldState,
+        snackbarHost = { scaffoldState.snackbarHostState }
+    ) { padding ->
+            Box {
+                CatsList(
+                    padding = padding,
+                    cats = cats,
+                    scaffoldState = scaffoldState,
+                    snackbarController = snackbarController,
+                    navController = navController
+                )
+            }
+        }
+    }
