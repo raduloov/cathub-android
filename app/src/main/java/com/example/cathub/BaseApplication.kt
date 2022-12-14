@@ -14,4 +14,8 @@ class BaseApplication : Application() {
     fun addToFavorites(cat: Cat) {
         favorites = favorites + cat
     }
+
+    fun removeFromFavorites(cat: Cat) {
+        favorites = favorites.toMutableList().also { it.remove(cat) }
+    }
 }

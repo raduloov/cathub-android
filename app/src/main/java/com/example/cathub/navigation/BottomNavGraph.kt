@@ -11,6 +11,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.cathub.ui.screens.details.DetailsScreen
+import com.example.cathub.ui.screens.favorites.FavoritesScreen
+import com.example.cathub.ui.screens.favorites.FavoritesViewModel
 import com.example.cathub.ui.screens.feed.FeedScreen
 
 @Composable
@@ -25,7 +27,7 @@ fun BottomNavGraph(
             FeedScreen(navController)
         }
         composable(route = BottomBarScreens.Discover.route) {
-            FeedScreen(navController)
+            FavoritesScreen(navController)
         }
         composable(route = BottomBarScreens.Profile.route) {
             FeedScreen(navController)

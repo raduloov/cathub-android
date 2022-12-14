@@ -8,7 +8,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronLeft
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,10 +18,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.cathub.BaseApplication
 import com.example.cathub.model.Cat
-import com.example.cathub.ui.screens.feed.FeedViewModel
-import javax.inject.Inject
+import com.example.cathub.ui.components.utils.SnackbarController
+import androidx.lifecycle.lifecycleScope
+import com.example.cathub.BaseApplication
 
 @SuppressLint("DiscouragedApi")
 @Composable
@@ -56,10 +56,14 @@ fun DetailsScreen(
             }
             Spacer(modifier = Modifier)
             IconButton(
-                onClick = { viewModel.addToFavorites(Cat(breed, image, description)) }
+                onClick = {
+                    viewModel.onFavorite(
+                        Cat(breed, image, description)
+                    )
+                }
             ) {
                 Icon(
-                    imageVector = Icons.Filled.Favorite,
+                    imageVector =  Icons.Outlined.Favorite,
                     contentDescription = "Back button",
                     modifier = Modifier
                         .size(40.dp)
