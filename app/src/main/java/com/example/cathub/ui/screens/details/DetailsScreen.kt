@@ -16,7 +16,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.cathub.BaseApplication
+import com.example.cathub.model.Cat
+import com.example.cathub.ui.screens.feed.FeedViewModel
+import javax.inject.Inject
 
 @SuppressLint("DiscouragedApi")
 @Composable
@@ -26,6 +31,9 @@ fun DetailsScreen(
     image: String,
     description: String
 ) {
+
+    val viewModel: DetailsViewModel = hiltViewModel()
+
     Column(
         modifier = Modifier
             .verticalScroll(rememberScrollState())
@@ -48,7 +56,7 @@ fun DetailsScreen(
             }
             Spacer(modifier = Modifier)
             IconButton(
-                onClick = {  }
+                onClick = { viewModel.addToFavorites(Cat(breed, image, description)) }
             ) {
                 Icon(
                     imageVector = Icons.Filled.Favorite,
