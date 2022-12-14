@@ -40,22 +40,16 @@ fun CatCard(
                     .fillMaxWidth()
                     .height(420.dp),
                 contentScale = ContentScale.Crop,
-                contentDescription = "Article image"
+                contentDescription = "Cat image"
             )
-
-            Row(
+            Text(
+                text = cat.breed,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 12.dp, bottom = 12.dp, start = 8.dp, end = 8.dp)
-            ) {
-                Text(
-                    text = cat.breed,
-                    modifier = Modifier
-                        .fillMaxWidth(0.85f)
-                        .wrapContentWidth(Alignment.Start),
-                    style = MaterialTheme.typography.h3
-                )
-            }
+                    .wrapContentWidth(Alignment.Start),
+                style = MaterialTheme.typography.h3
+            )
         }
     }
 }

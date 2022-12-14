@@ -31,30 +31,24 @@ fun BottomNavGraph(
             FeedScreen(navController)
         }
         composable(
-            route = Screens.Details.route + "/{breed}/{imageUrl}/{description}",
+            route = Screens.Details.route + "/{breed}/{image}/{description}",
             arguments = listOf(
                 navArgument("breed") {
                     type = NavType.StringType
-                    defaultValue = null
-                    nullable = true
                 },
                 navArgument("image") {
                     type = NavType.StringType
-                    defaultValue = null
-                    nullable = true
                 },
                 navArgument("description") {
                     type = NavType.StringType
-                    defaultValue = null
-                    nullable = true
                 }
             )
         ) { entry ->
             DetailsScreen(
                 navController,
-                breed = entry.arguments?.getString("breed"),
-                image = entry.arguments?.getString("image"),
-                description = entry.arguments?.getString("description")
+                breed = entry.arguments?.getString("breed")!!,
+                image = entry.arguments?.getString("image")!!,
+                description = entry.arguments?.getString("description")!!
             )
         }
     }
@@ -76,8 +70,8 @@ sealed class BottomBarScreens(
     object Discover: BottomBarScreens(
         route = "favorites",
         title = "Favorites",
-        selectedIcon = Icons.Filled.Star,
-        unselectedIcon = Icons.Outlined.Star
+        selectedIcon = Icons.Filled.Favorite,
+        unselectedIcon = Icons.Outlined.Favorite
     )
 
     object Profile: BottomBarScreens(

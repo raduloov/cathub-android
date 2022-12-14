@@ -1,5 +1,6 @@
 package com.example.cathub.ui.components
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -17,6 +18,7 @@ import androidx.navigation.NavController
 import com.example.cathub.model.Cat
 import com.example.cathub.navigation.Screens
 import com.example.cathub.ui.components.utils.SnackbarController
+import com.example.cathub.utils.TAG
 //import com.example.cathub.ui.screens.feed.ArticleListEvent
 import kotlinx.coroutines.launch
 
