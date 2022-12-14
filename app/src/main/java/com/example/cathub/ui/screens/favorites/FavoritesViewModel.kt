@@ -20,6 +20,7 @@ class FavoritesViewModel
     }
 
     private fun getFavoriteCats() {
+
         favoriteCats.value = application.favorites
     }
 }

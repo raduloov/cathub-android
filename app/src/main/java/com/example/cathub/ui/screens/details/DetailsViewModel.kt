@@ -15,14 +15,16 @@ class DetailsViewModel
 ) : ViewModel() {
 
     fun onFavorite(cat: Cat) {
-        Log.d(TAG, application.favorites.toString())
 
         if (application.favorites.contains(cat)) {
             application.removeFromFavorites(cat)
         } else {
             application.addToFavorites(cat)
         }
+    }
 
-        Log.d(TAG, application.favorites.toString())
+    fun getIsFavorite(cat: Cat): Boolean {
+
+        return application.favorites.contains(cat)
     }
 }
