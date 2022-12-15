@@ -29,9 +29,6 @@ fun BottomNavGraph(
         composable(route = BottomBarScreens.Discover.route) {
             FavoritesScreen(navController)
         }
-        composable(route = BottomBarScreens.Profile.route) {
-            FeedScreen(navController)
-        }
         composable(
             route = Screens.Details.route + "/{breed}/{image}/{description}",
             arguments = listOf(
@@ -74,13 +71,6 @@ sealed class BottomBarScreens(
         title = "Favorites",
         selectedIcon = Icons.Filled.Favorite,
         unselectedIcon = Icons.Outlined.Favorite
-    )
-
-    object Profile: BottomBarScreens(
-        route = "profile",
-        title = "Profile",
-        selectedIcon = Icons.Filled.Person,
-        unselectedIcon = Icons.Outlined.Person
     )
 }
 
