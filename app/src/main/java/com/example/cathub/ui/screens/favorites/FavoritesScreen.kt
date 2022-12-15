@@ -8,10 +8,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.cathub.ui.components.CatsList
 import com.example.cathub.ui.components.FavoritesHeader
-import com.example.cathub.ui.components.FeedHeader
-import com.example.cathub.ui.components.utils.SnackbarController
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
 
 @Composable
 fun FavoritesScreen(
