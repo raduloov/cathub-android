@@ -5,13 +5,10 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ScaffoldState
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.cathub.ui.components.DefaultSnackbar
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -25,21 +22,11 @@ private val LightColorPalette = lightColors(
     primaryVariant = Purple700,
     secondary = Teal200,
     background = Clouds
-
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
 )
 
 @Composable
 fun CatHubTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    scaffoldState: ScaffoldState,
     content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {
@@ -59,16 +46,6 @@ fun CatHubTheme(
                 .background(color = if (!darkTheme) Clouds else Grey900)
         ) {
             content()
-//            CircularIndeterminateProgressBar(
-//                verticalBias = 0.3f
-//            )
-            DefaultSnackbar(
-                snackbarHostState = scaffoldState.snackbarHostState,
-                onDismiss = {
-                    scaffoldState.snackbarHostState.currentSnackbarData?.dismiss()
-                },
-                modifier = Modifier.align(Alignment.BottomCenter)
-            )
         }
     }
 }

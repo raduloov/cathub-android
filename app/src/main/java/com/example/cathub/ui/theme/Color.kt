@@ -9,5 +9,3 @@ val Teal200 = Color(0xFF03DAC5)
 
 val Clouds = Color(0xFFECF0F1)
 val Grey900 = Color(0xFF212121)
-val Grey500 = Color(0xFF757575)
-val White = Color(0xFFFFFFFF)

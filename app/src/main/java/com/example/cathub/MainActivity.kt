@@ -14,10 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
-            val scaffoldState = rememberScaffoldState()
-
-            CatHubTheme(scaffoldState = scaffoldState) {
+            CatHubTheme {
                 MainScreen()
             }
         }
