@@ -1,6 +1,8 @@
 package com.example.cathub.ui.screens.details
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -22,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.cathub.model.Cat
+import com.example.cathub.utils.WIKIPEDIA_URL
 
 @SuppressLint("DiscouragedApi")
 @Composable
@@ -29,7 +32,8 @@ fun DetailsScreen(
     navController: NavController,
     breed: String,
     image: String,
-    description: String
+    description: String,
+    url: String
 ) {
 
     val viewModel: DetailsViewModel = hiltViewModel()
@@ -37,8 +41,14 @@ fun DetailsScreen(
     val showSuccessDialog = remember { mutableStateOf(false) }
     val showRemoveDialog = remember { mutableStateOf(false) }
 
-    val cat = Cat(breed, image, description)
+    val cat = Cat(breed, image, description, url)
     val isFavorite = viewModel.getIsFavorite(cat)
+
+    val context = LocalContext.current
+
+    val intent = remember {
+        Intent(Intent.ACTION_VIEW, Uri.parse("$WIKIPEDIA_URL${cat.urlSuffix}"))
+    }
 
     Column(
         modifier = Modifier
@@ -113,6 +123,13 @@ fun DetailsScreen(
                 .wrapContentWidth(Alignment.Start),
             style = MaterialTheme.typography.h5
         )
+        Button(
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally),
+            onClick = { context.startActivity(intent) }
+        ) {
+            Text(text = "Show more info")
+        }
 
         if (showSuccessDialog.value) {
             AlertDialog(

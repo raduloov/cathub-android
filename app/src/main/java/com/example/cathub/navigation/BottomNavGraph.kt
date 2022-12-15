@@ -26,11 +26,11 @@ fun BottomNavGraph(
         composable(route = BottomBarScreens.Feed.route) {
             FeedScreen(navController)
         }
-        composable(route = BottomBarScreens.Discover.route) {
+        composable(route = BottomBarScreens.Favorites.route) {
             FavoritesScreen(navController)
         }
         composable(
-            route = Screens.Details.route + "/{breed}/{image}/{description}",
+            route = Screens.Details.route + "/{breed}/{image}/{description}/{urlSuffix}",
             arguments = listOf(
                 navArgument("breed") {
                     type = NavType.StringType
@@ -40,6 +40,9 @@ fun BottomNavGraph(
                 },
                 navArgument("description") {
                     type = NavType.StringType
+                },
+                navArgument("urlSuffix") {
+                    type = NavType.StringType
                 }
             )
         ) { entry ->
@@ -47,7 +50,8 @@ fun BottomNavGraph(
                 navController,
                 breed = entry.arguments?.getString("breed")!!,
                 image = entry.arguments?.getString("image")!!,
-                description = entry.arguments?.getString("description")!!
+                description = entry.arguments?.getString("description")!!,
+                url = entry.arguments?.getString("urlSuffix")!!
             )
         }
     }
@@ -66,7 +70,7 @@ sealed class BottomBarScreens(
         unselectedIcon = Icons.Outlined.Feed
     )
 
-    object Discover: BottomBarScreens(
+    object Favorites: BottomBarScreens(
         route = "favorites",
         title = "Favorites",
         selectedIcon = Icons.Filled.Favorite,

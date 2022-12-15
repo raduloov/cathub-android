@@ -37,7 +37,14 @@ fun CatsList(
                 CatCard(
                     cat = cat,
                     onClick = {
-                        navController.navigate(Screens.Details.withArgs(cat.breed, cat.image, cat.description))
+                        navController.navigate(
+                            Screens.Details.withArgs(
+                                cat.breed,
+                                cat.image,
+                                cat.description,
+                                cat.urlSuffix
+                            )
+                        )
                     }
                 )
             }

@@ -2,46 +2,55 @@
   {
     "breed": "Sphynx",
     "image": "sphynx",
-    "description": "The Sphynx’s most distinctive features are its nearly hairless body, tall ears, wrinkles, peach-fuzz skin and round belly. Though you might think a hairless cat would be hypoallergenic, it’s not true! Cat allergies are caused by dander, and the Sphynx has plenty of that. The Sphynx’s hairless coat is caused by a naturally-occurring gene mutation that was then crossed with Rex cats."
+    "description": "The Sphynx’s most distinctive features are its nearly hairless body, tall ears, wrinkles, peach-fuzz skin and round belly. Though you might think a hairless cat would be hypoallergenic, it’s not true! Cat allergies are caused by dander, and the Sphynx has plenty of that. The Sphynx’s hairless coat is caused by a naturally-occurring gene mutation that was then crossed with Rex cats.",
+    "urlSuffix": "Sphynx_cat"
   },
   {
     "breed": "Peterbald",
     "image": "peterbald",
-    "description": "Peterbald cats are often thought of as mostly hairless, however, these cats have up to five different coat types including short or brush coats. Peterbald cats, and other hairless breeds, are known for having more pronounced webbing on their feet, which they’ve been known to use to pick things up or even open doors!"
+    "description": "Peterbald cats are often thought of as mostly hairless, however, these cats have up to five different coat types including short or brush coats. Peterbald cats, and other hairless breeds, are known for having more pronounced webbing on their feet, which they’ve been known to use to pick things up or even open doors!",
+    "urlSuffix": "Peterbald"
   },
   {
     "breed": "Munchkin",
     "image": "munchkin",
-    "description": "The dachshund of cat breeds, Munchkin cats have been around for hundreds of years and are known for their shorter legs but otherwise standard build. However, it wasn’t until the mid-nineties that it was formally recognized as a breed. This breed has long been controversial due to the morality of continuing to breed the genetic mutation causing the long bone deformity."
+    "description": "The dachshund of cat breeds, Munchkin cats have been around for hundreds of years and are known for their shorter legs but otherwise standard build. However, it wasn’t until the mid-nineties that it was formally recognized as a breed. This breed has long been controversial due to the morality of continuing to breed the genetic mutation causing the long bone deformity.",
+    "urlSuffix": "Munchkin_cat"
   },
   {
     "breed": "Devon Rex",
     "image": "devon_rex",
-    "description": "The Sphynx’s most distinctive features are its nearly hairless body, tall ears, wrinkles, peach-fuzz skin and round belly. Though you might think a hairless cat would be hypoallergenic, it’s not true! Cat allergies are caused by dander, and the Sphynx has plenty of that. The Sphynx’s hairless coat is caused by a naturally-occurring gene mutation that was then crossed with Rex cats."
+    "description": "The Sphynx’s most distinctive features are its nearly hairless body, tall ears, wrinkles, peach-fuzz skin and round belly. Though you might think a hairless cat would be hypoallergenic, it’s not true! Cat allergies are caused by dander, and the Sphynx has plenty of that. The Sphynx’s hairless coat is caused by a naturally-occurring gene mutation that was then crossed with Rex cats.",
+    "urlSuffix": "Devon_Rex"
   },
   {
     "breed": "Japanese Bobtail",
     "image": "japanese_bobtail",
-    "description": "This strange Japanese cat breed is born with a short, puffy tail like the tail of a rabbit. Some Japanese bobtails even hop like bunnies when they run! Their back legs tend to be slightly longer than the front, giving them an especially athletic appearance. This breed is said to have originated as far back as 600 A.D. when cats were brought with Buddhist monks from China and Korea to Japan."
+    "description": "This strange Japanese cat breed is born with a short, puffy tail like the tail of a rabbit. Some Japanese bobtails even hop like bunnies when they run! Their back legs tend to be slightly longer than the front, giving them an especially athletic appearance. This breed is said to have originated as far back as 600 A.D. when cats were brought with Buddhist monks from China and Korea to Japan.",
+    "urlSuffix": "Japanese_Bobtail"
   },
   {
     "breed": "Scottish Fold",
     "image": "scottish_fold",
-    "description": "Scottish Fold cats have bended ears that make them look almost earless. With round, full faces, and large, circular eyes, this can give Scottish Folds an owlish look. The breed developed from a cat named Susie, from Scotland, who had folded ears when she was discovered by a shepherd in 1961."
+    "description": "Scottish Fold cats have bended ears that make them look almost earless. With round, full faces, and large, circular eyes, this can give Scottish Folds an owlish look. The breed developed from a cat named Susie, from Scotland, who had folded ears when she was discovered by a shepherd in 1961.",
+    "urlSuffix": "Scottish_Fold"
   },
   {
     "breed": "Pixiebob",
     "image": "pixiebob",
-    "description": "This breed resembles the wild bobcat, but in the size of a domestic cat. Founding breeder Carol Ann Brewer claims that Pixiebob cats come from a line of naturally occurring bobcat hybrids, but genetic evidence is inconclusive. Along with their distinctive bobbed tails, these cats are prone to polydactylism."
+    "description": "This breed resembles the wild bobcat, but in the size of a domestic cat. Founding breeder Carol Ann Brewer claims that Pixiebob cats come from a line of naturally occurring bobcat hybrids, but genetic evidence is inconclusive. Along with their distinctive bobbed tails, these cats are prone to polydactylism.",
+    "urlSuffix": "Pixie-bob"
   },
   {
     "breed": "Savannah",
     "image": "savannah",
-    "description": "The Savannah Cat looks like a wild cat from the African Savannah—and that’s half true. It’s the result of a cross between a domestic cat and the serval, a medium-sized wild African cat. Savannah cats are exceptionally large, typically weighing up to 30 pounds and ranking as the world’s tallest domestic cat breed. This cat breed also boasts exceptionally large ears, dark tear stands and cheetah-like markings."
+    "description": "The Savannah Cat looks like a wild cat from the African Savannah—and that’s half true. It’s the result of a cross between a domestic cat and the serval, a medium-sized wild African cat. Savannah cats are exceptionally large, typically weighing up to 30 pounds and ranking as the world’s tallest domestic cat breed. This cat breed also boasts exceptionally large ears, dark tear stands and cheetah-like markings.",
+    "urlSuffix": "Savannah_cat"
   },
   {
     "breed": "Teacup Persian",
     "image": "teacup_persian",
-    "description": "Technically, the Teacup Persian isn’t a strange cat breed of its own—it’s a variety of Persian cat that’s been bred to be extremely small. Some are so tiny they can fit in the palm of your hand! However, this breed faces a lot of controversy due to the health problems that can occur when intentionally breeding cats to be small."
+    "description": "Technically, the Teacup Persian isn’t a strange cat breed of its own—it’s a variety of Persian cat that’s been bred to be extremely small. Some are so tiny they can fit in the palm of your hand! However, this breed faces a lot of controversy due to the health problems that can occur when intentionally breeding cats to be small.",
+    "urlSuffix": "Persian_cat"
   }
 ]
