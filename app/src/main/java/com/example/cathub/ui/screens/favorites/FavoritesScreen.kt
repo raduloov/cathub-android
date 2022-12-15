@@ -16,15 +16,15 @@ fun FavoritesScreen(
 
     val viewModel: FavoritesViewModel = hiltViewModel()
 
-    val scaffoldState = rememberScaffoldState()
-
     val favoriteCats = viewModel.favoriteCats.value
+
+    val scaffoldState = rememberScaffoldState()
 
     Scaffold(
         topBar = {
             FavoritesHeader()
         },
-        scaffoldState = scaffoldState,
+        scaffoldState = scaffoldState
     ) { padding ->
         Box {
             CatsList(

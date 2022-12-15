@@ -20,6 +20,7 @@ class FeedViewModel
 ) : ViewModel() {
 
     val cats: MutableState<List<Cat>> = mutableStateOf(ArrayList())
+    val query = mutableStateOf("")
 
     init {
         cats.value = getCats()
@@ -30,5 +31,17 @@ class FeedViewModel
         val gson = Gson()
         val listPersonType = object : TypeToken<List<Cat>>() {}.type
         return gson.fromJson(jsonFileString, listPersonType)
+    }
+
+    fun onQueryChanged(query: String) {
+        this.query.value = query
+    }
+
+    fun onSearch() {
+        val allCats = getCats()
+        val filteredCats = allCats.filter { cat ->
+            cat.breed.lowercase().contains(query.value)
+        }
+        cats.value = filteredCats
     }
 }

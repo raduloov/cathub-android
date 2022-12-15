@@ -16,6 +16,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.cathub.ui.components.CatsList
 import com.example.cathub.ui.components.FeedHeader
+import com.example.cathub.ui.components.SearchBar
 import kotlinx.coroutines.delay
 
 @Composable
@@ -31,30 +32,36 @@ fun FeedScreen(
 
     // Mock loading effect
     LaunchedEffect(Unit) {
-        delay(2000)
+        delay(1500)
         isLoading.value = false
     }
 
     Scaffold(
         topBar = {
-            FeedHeader()
+            Column {
+                FeedHeader()
+                SearchBar(
+                    query = viewModel.query.value,
+                    onQueryChanged = viewModel::onQueryChanged,
+                    onSearch = viewModel::onSearch
+                )
+            }
         },
         scaffoldState = scaffoldState,
-        snackbarHost = { scaffoldState.snackbarHostState }
+        snackbarHost = { scaffoldState.snackbarHostState },
     ) { padding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
             if (isLoading.value) {
-                Column(
+                CircularProgressIndicator(
                     modifier = Modifier
-                        .fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    CircularProgressIndicator(
-                        modifier = Modifier
-                            .progressSemantics()
-                            .size(100.dp)
-                    )
-                }
+                        .progressSemantics()
+                        .size(100.dp)
+                )
             } else {
                 CatsList(
                     padding = padding,
@@ -62,5 +69,6 @@ fun FeedScreen(
                     navController = navController
                 )
             }
+          }
         }
     }
